@@ -1,5 +1,7 @@
 package edu.vuum.mooca;
-import java.util.concurrent.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * @class SynchronizedQueue
@@ -219,22 +221,26 @@ public class SynchronizedQueue {
             // TODO - you fill in here to replace the null
             // initialization below to create two Java Threads, one
             // that's passed the producerRunnable and the other that's
-            // passed the consumerRunnable.
-            Thread consumer = null;
-            Thread producer = null;
+            // passed the consumerRunnable. DONE
+            Thread consumer = new Thread(consumerRunnable);
+            Thread producer = new Thread(producerRunnable);
 
             // TODO - you fill in here to start the threads. More
             // interesting results will occur if you start the
-            // consumer first.
+            // consumer first.  DONE
+            consumer.start();
+            producer.start();
             
-            // Give the Threads a chance to run before interrupting
-            // them.
+            // Give the Threads a chance to run before interrupting them.
             Thread.sleep(100);
 
-            // TODO - you fill in here to interrupt the threads.
+            // TODO - you fill in here to interrupt the threads. DONE
+            consumer.interrupt();
+            producer.interrupt();
 
-            // TODO - you fill in here to wait for the threads to
-            // exit.
+            // TODO - you fill in here to wait for the threads to exit. DONE
+            consumer.join();
+            producer.join();
             
             // Do some sanity checking to see if the Threads work as
             // expected.
