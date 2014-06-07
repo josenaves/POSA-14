@@ -201,3 +201,14 @@ Ping Pong solution
 • e.g., the Template Method, Strategy, & Factory Method patterns 
 • Benefits include greater reusability, flexibility, & portability 
 • Simplify porting to new platforms
+
+
+--------
+
+June, 7
+
+Keyword volatile ensures that a data member is not cached for access by multiple threads.
+
+Fairness = the longest waiting thread will get the lock
+
+lock and lockInterruptibly -->  it allows the thread to immediately react to the interrupt signal sent to it from another thread
