@@ -212,3 +212,8 @@ Keyword volatile ensures that a data member is not cached for access by multiple
 Fairness = the longest waiting thread will get the lock
 
 lock and lockInterruptibly -->  it allows the thread to immediately react to the interrupt signal sent to it from another thread
+
+spin lock --> keeps on loop, checking a lock (busy waiting)
+sleep lock --> puts a thread to sleep
+
+Bridge patter (Gof): decouple an abstraction from its implementation so the two can vary independently
