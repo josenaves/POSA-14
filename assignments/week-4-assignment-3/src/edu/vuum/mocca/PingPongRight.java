@@ -90,7 +90,7 @@ public class PingPongRight {
          * Method for acquiring the appropriate SimpleSemaphore.
          */
         private void acquire() {
-            // TODO fill in here
+            // TODO fill in here  --> DONE
         	semaOne.acquireUninterruptibly();
         }
 
