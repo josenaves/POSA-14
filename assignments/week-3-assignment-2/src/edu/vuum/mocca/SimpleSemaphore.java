@@ -14,7 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class SimpleSemaphore {
     /**
-     * Define a ReentrantLock to protect the critical section.
+     * Define a Lock to protect the critical section.
      */
     // TODO - you fill in here --> DONE
 	private ReentrantLock lock;

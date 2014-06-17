@@ -30,7 +30,6 @@ public class PingPongRight {
      *        and "pong" to the console display.
      */
     public static class PlayPingPongThread extends Thread {
-
         /**
          * Maximum number of loop iterations.
          */
