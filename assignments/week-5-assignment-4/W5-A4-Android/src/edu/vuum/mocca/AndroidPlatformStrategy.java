@@ -46,7 +46,8 @@ public class AndroidPlatformStrategy extends PlatformStrategy
     public void begin()
     {
         /** (Re)initialize the CountDownLatch. */
-        // TODO - You fill in here.
+        // TODO - You fill in here. (DONE)
+    	mLatch = new CountDownLatch(2);
     }
 
     /** Print the outputString to the display. */
@@ -68,7 +69,13 @@ public class AndroidPlatformStrategy extends PlatformStrategy
     /** Barrier that waits for all the game threads to finish. */
     public void awaitDone()
     {
-        // TODO - You fill in here.
+        // TODO - You fill in here. (DONE)
+    	try {
+			mLatch.await();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     /** 
