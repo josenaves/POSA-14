@@ -3,7 +3,6 @@ package edu.vuum.mocca.test;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -11,7 +10,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.test.ServiceTestCase;
 import edu.vuum.mocca.DownloadIntentService;
-import edu.vuum.mocca.DownloadUtils;
 
 /**
  * @class DownloadIntentServiceTests
