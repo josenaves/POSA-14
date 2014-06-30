@@ -2,7 +2,6 @@ package edu.vuum.mocca;
 
 import java.lang.ref.WeakReference;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -80,7 +79,7 @@ public class DownloadActivity extends DownloadBase {
                 // TODO - You fill in here to display the image
                 // bitmap that's been downloaded and returned to
                 // the DownloadActivity as a pathname who's Bundle
-            	// key is defined by DownloadUtils.PATHNAME_KEY    DONE ??
+            	// key is defined by DownloadUtils.PATHNAME_KEY    DONE
             	ImageView img = (ImageView)activity.findViewById(R.id.imageView1);
             	img.setImageURI(Uri.parse(((String)msg.getData().get(DownloadUtils.PATHNAME_KEY))));
             }
@@ -107,24 +106,20 @@ public class DownloadActivity extends DownloadBase {
     public void runService(View view) {
     	String which = "";
 
-    	Intent intent = null;
-    	
     	switch (view.getId()) {
         case R.id.intent_service_button:
             // TODO - You fill in here to start the
             // DownloadIntentService with the appropriate Intent
-            // returned from the makeIntent() factory method.  DONE ?
-        	intent = DownloadIntentService.makeIntent(getApplicationContext(), handler, getUrlString());
-        	startService(intent);
+            // returned from the makeIntent() factory method.  DONE
+        	startService(DownloadIntentService.makeIntent(getApplicationContext(), handler, getUrlString()));
             which = "Starting DownloadIntentService";
             break;
         
         case R.id.thread_pool_button:
             // TODO - You fill in here to start the
             // ThreadPoolDownloadService with the appropriate Intent
-            // returned from the makeIntent() factory method.  DONE?
-        	intent = ThreadPoolDownloadService.makeIntent(getApplicationContext(), handler, getUrlString());
-        	startService(intent);
+            // returned from the makeIntent() factory method.  DONE
+        	startService(ThreadPoolDownloadService.makeIntent(getApplicationContext(), handler, getUrlString()));
             which = "Starting ThreadPoolDownloadService";
             break;
         
