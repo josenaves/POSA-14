@@ -61,8 +61,10 @@ public class DownloadIntentService extends IntentService {
                                     String uri) {
     	// TODO - You fill in here to replace null with a call to the
     	// factory method in DownloadUtils that makes a Messenger
-    	// Intent with the appropriate parameters. DONE?
-        return DownloadUtils.makeMessengerIntent(context, DownloadIntentService.class, handler, uri);
+    	// Intent with the appropriate parameters.
+    	
+    	Intent intent = DownloadUtils.makeMessengerIntent(context, DownloadIntentService.class, handler, uri);
+        return intent;
     }
 
     /**
@@ -79,13 +81,15 @@ public class DownloadIntentService extends IntentService {
      * the creation and lifecycle of a started service, but allows a
      * user to define what happens when an Intent is actually handled.
      */
-    @Override
     protected void onHandleIntent (Intent intent) {
         // TODO - You fill in here with a call the appropriate helper
         // method from the DownloadUtils class that downloads the uri
         // in the intent and returns the file's pathname using a
-        // Messenger who's Bundle key is defined by DownloadUtils.MESSENGER_KEY  DONE
-    	Messenger messenger = (Messenger) intent.getExtras().get(DownloadUtils.MESSENGER_KEY);
-    	DownloadUtils.downloadAndRespond(getApplicationContext(), intent.getData(), messenger);
+        // Messenger that's named "MESSENGER"
+    	Object messengerObj = intent.getExtras().get(DownloadUtils.MESSENGER_KEY);
+    	if (messengerObj != null && messengerObj instanceof Messenger) {
+    		Messenger messenger = (Messenger) messengerObj;
+    		DownloadUtils.downloadAndRespond(getApplicationContext(), intent.getData(), messenger);
+    	}
     }
 }
