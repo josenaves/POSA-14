@@ -25,8 +25,10 @@ public class LoginActivity extends StoryActivityBase{
 	EditText mLoginId;
 	EditText mPassword;
 	
+	
+	// FIX: this is a vulnerability ! 
 	// Make sure we use maximum security to store login credentials
-	static final int MAX_SECURITY = Integer.MAX_VALUE;
+	//static final int MAX_SECURITY = Integer.MAX_VALUE;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +47,10 @@ public class LoginActivity extends StoryActivityBase{
 	 * Get the file used for storing login credentials
 	 */
 	public static File getLoginFile (Context context) {
+		// FIX: now using SECURITY_PRIVATE to secure the login file
 		return StorageUtilities.getOutputMediaFile(context, 	// Line 48
 				StorageUtilities.MEDIA_TYPE_TEXT, 
-				MAX_SECURITY, 
+				StorageUtilities.SECURITY_PRIVATE, 
 				"login.txt");
 	}
 	
