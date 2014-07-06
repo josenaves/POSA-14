@@ -1,0 +1,26 @@
+Question 1 - AndroidManifest.xml 
+	AndroidManifest.xml:56
+
+Question 2 - CreateStoryActivity.java
+	line 382
+
+Question 3 - EditStoryActivity.java
+
+
+Question 4 - ListStoryActivity.java
+
+
+Question 5 - LoginActivity.java
+	line 48
+
+Question 6 - SoudRecordActivity.java
+
+Question 7 - StorageUtilities.java
+	line 76 *** avoid conditional logic
+	line 24 *** use strongly typed (enum)
+
+Question 8 - StoryActivityBase.java
+
+Question 9 - ViewActivity.java
+
+
