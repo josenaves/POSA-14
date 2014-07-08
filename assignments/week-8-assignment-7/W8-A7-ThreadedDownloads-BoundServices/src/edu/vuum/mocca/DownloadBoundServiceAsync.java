@@ -52,6 +52,8 @@ public class DownloadBoundServiceAsync extends Service{
                 // the appropriate helper method in DownloadUtils and
                 // then send the pathname back to the client via the
                 // callback object.
+            	String filePath = DownloadUtils.downloadFile(getApplicationContext(), uri);
+            	callback.sendPath(filePath);
             }
 		
 	};
@@ -74,7 +76,7 @@ public class DownloadBoundServiceAsync extends Service{
      */
     public static Intent makeIntent(Context context) {
         // TODO - replace the null to create the appropriate Intent
-        // and return it to the caller.
-        return null;
+        // and return it to the caller. DONE
+        return new Intent(context, DownloadBoundServiceAsync.class);
     }
 }
