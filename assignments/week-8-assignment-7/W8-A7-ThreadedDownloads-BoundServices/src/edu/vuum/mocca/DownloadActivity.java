@@ -102,7 +102,7 @@ public class DownloadActivity extends DownloadBase {
              * mDownloadRequest.
              */
             @Override
-		public void onServiceConnected(ComponentName name,
+            public void onServiceConnected(ComponentName name,
                                                IBinder service) {
                 // TODO You fill in here to replace null with a call
                 // to a generated stub method that converts the
@@ -123,15 +123,15 @@ public class DownloadActivity extends DownloadBase {
             }
         };
      
-    /**
-     * The implementation of the DownloadCallback AIDL
-     * Interface. Should be passed to the DownloadBoundServiceAsync
-     * Service using the DownloadRequest.downloadImage() method.
-     * 
-     * This implementation of DownloadCallback.Stub plays the role of
-     * Invoker in the Broker Pattern.
-     */
-    DownloadCallback.Stub mDownloadCallback = new DownloadCallback.Stub() {
+		/**
+		 * The implementation of the DownloadCallback AIDL
+		 * Interface. Should be passed to the DownloadBoundServiceAsync
+		 * Service using the DownloadRequest.downloadImage() method.
+		 * 
+		 * This implementation of DownloadCallback.Stub plays the role of
+		 * Invoker in the Broker Pattern.
+		 */
+        DownloadCallback.Stub mDownloadCallback = new DownloadCallback.Stub() {
             /**
              * Called when the DownloadServiceAsync finishes obtaining
              * the results from the GeoNames Web service.  Use the
@@ -146,12 +146,12 @@ public class DownloadActivity extends DownloadBase {
                 // DownloadBase.
 
                 Runnable displayRunnable = new Runnable() {
-					
 					@Override
 					public void run() {
 						displayBitmap(imagePathname);
 					}
 				};
+				runOnUiThread(displayRunnable);
             }
         };
      
@@ -169,7 +169,8 @@ public class DownloadActivity extends DownloadBase {
         case R.id.bound_sync_button:
             // TODO - You fill in here to use mDownloadCall to
             // download the image & then display it.
-        	mDownloadCall.downloadImage(uri);
+        	String imagePath = mDownloadCall.downloadImage(uri);
+        	displayBitmap(imagePath);
             break;
 
         case R.id.bound_async_button:
